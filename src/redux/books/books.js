@@ -5,7 +5,20 @@ import React from 'react';
 
 class Books extends React.PureComponent {
   state = {
-    books: [],
+    bookList: [
+      {
+        id: 1,
+        title: 'Pinokio',
+      },
+      {
+        id: 2,
+        title: 'the lion King',
+      },
+      {
+        id: 3,
+        title: 'the stork of darkness',
+      },
+    ],
   }
 
   addBook = (e) => {
@@ -16,14 +29,14 @@ class Books extends React.PureComponent {
       title: bookName,
     };
     this.setState({
-      books: [...this.state.books, newBook],
+      bookList: [...this.state.bookList, newBook],
     });
   }
 
   removeBook = (id) => {
     this.setState({
-      books: [
-        ...this.state.books.filter((book) => book.id !== id),
+      bookList: [
+        ...this.state.bookList.filter((book) => book.id !== id),
       ],
     });
   }
@@ -36,7 +49,7 @@ class Books extends React.PureComponent {
           <button type="button">submit</button>
         </form>
         <ul className="bookUl">
-          {this.state.books.map((book) => (
+          {this.state.bookList.map((book) => (
             <li key={book.id}>
               <p>{book.title}</p>
               <button type="button" onClick={() => this.removeBook(book.id)}>delete</button>
