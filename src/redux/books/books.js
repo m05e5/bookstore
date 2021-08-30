@@ -1,10 +1,11 @@
-import React from "react";
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/state-in-constructor */
+import React from 'react';
 
-
- class Books extends React.PureComponent {
-
+class Books extends React.PureComponent {
   state = {
-    books: []
+    books: [],
   }
 
   addBook = (e) => {
@@ -13,40 +14,39 @@ import React from "react";
     const newBook = {
       id: Date.now(),
       title: bookName,
-    }
+    };
     this.setState({
-      books:[...this.state.books, newBook]
-    })
+      books: [...this.state.books, newBook],
+    });
   }
 
   removeBook = (id) => {
     this.setState({
       books: [
-        ...this.state.books.filter((book) => book.id !== id)
-      ]
-    })
+        ...this.state.books.filter((book) => book.id !== id),
+      ],
+    });
   }
 
-render(){
-  return (
-    <div>
-      <form onSubmit={this.addBook}>
-        <input type="text" id="book-input"/>
-        <button type="button">submit</button>
-      </form>
-      <ul className='bookUl'>
-        {this.state.books.map((book) => (
-          <li key={book.id}>
-            <p>{book.title}</p>
-            <button type="button" onClick={()=>this.removeBook(book.id)}>delete</button>
-          </li>
-        ))}
-      </ul>
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.addBook}>
+          <input type="text" id="book-input" />
+          <button type="button">submit</button>
+        </form>
+        <ul className="bookUl">
+          {this.state.books.map((book) => (
+            <li key={book.id}>
+              <p>{book.title}</p>
+              <button type="button" onClick={() => this.removeBook(book.id)}>delete</button>
+            </li>
+          ))}
+        </ul>
 
-    </div>
-  );
-}
-  
+      </div>
+    );
+  }
 }
 
 export default Books;
