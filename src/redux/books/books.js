@@ -1,65 +1,39 @@
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/state-in-constructor */
-import React from 'react';
+/* eslint-disable no-case-declarations */
+const ADD_BOOK = 'bookstore/books/addBook';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-class Books extends React.PureComponent {
-  state = {
-    bookList: [
-      {
-        id: 1,
-        title: 'Pinokio',
-      },
-      {
-        id: 2,
-        title: 'the lion King',
-      },
-      {
-        id: 3,
-        title: 'the stork of darkness',
-      },
-    ],
+const initialState = [
+  {
+    id: 1,
+    title: 'Isekai wa maho',
+    author: 'moses',
+  },
+  {
+    id: 2,
+    title: 'Nanatsu no hero',
+    author: 'moses',
+  },
+];
+
+export const addBook = (payload) => ({
+  type: ADD_BOOK,
+  payload,
+});
+
+export const removeBook = (payload) => ({
+  type: REMOVE_BOOK,
+  payload,
+});
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_BOOK:
+      return { state: [...state.state, action.payload] };
+    case REMOVE_BOOK:
+      return { state: [...state.state.filter((book) => book.id !== action.payload)] };
+    default:
+      return { state };
   }
+};
 
-  addBook = (e) => {
-    e.preventDefault();
-    const bookName = document.getElementById('book-input').value;
-    const newBook = {
-      id: Date.now(),
-      title: bookName,
-    };
-    this.setState({
-      bookList: [...this.state.bookList, newBook],
-    });
-  }
-
-  removeBook = (id) => {
-    this.setState({
-      bookList: [
-        ...this.state.bookList.filter((book) => book.id !== id),
-      ],
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.addBook}>
-          <input type="text" id="book-input" />
-          <button type="button">submit</button>
-        </form>
-        <ul className="bookUl">
-          {this.state.bookList.map((book) => (
-            <li key={book.id}>
-              <p>{book.title}</p>
-              <button type="button" onClick={() => this.removeBook(book.id)}>delete</button>
-            </li>
-          ))}
-        </ul>
-
-      </div>
-    );
-  }
-}
-
-export default Books;
+export default reducer;
