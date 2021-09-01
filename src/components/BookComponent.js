@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBook, removeBook } from '../redux/books/books';
 
@@ -36,7 +35,6 @@ const Books = () => {
             <button type="button" onClick={() => removeBookFromSTore(book.id)}>delete</button>
           </li>
         ))}
-        {/* <li>sdfsdfsdf</li>  */}
       </ul>
 
     </div>
