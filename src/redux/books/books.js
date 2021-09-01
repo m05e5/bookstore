@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 const ADD_BOOK = 'bookstore/books/addBook';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
