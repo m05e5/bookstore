@@ -1,18 +1,13 @@
 const ADD_BOOK = 'bookstore/books/addBook';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+const GET_BOOKS = 'bookstore/books/GET_BOOKS';
 
-const initialState = [
-  {
-    id: 1,
-    title: 'Isekai wa maho',
-    author: 'moses',
-  },
-  {
-    id: 2,
-    title: 'Nanatsu no hero',
-    author: 'moses',
-  },
-];
+const initialState = [];
+
+export const books = (payload) => ({
+  type: GET_BOOKS,
+  payload,
+});
 
 export const addBook = (payload) => ({
   type: ADD_BOOK,
@@ -26,10 +21,12 @@ export const removeBook = (payload) => ({
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_BOOKS:
+      return { state: action.payload };
     case ADD_BOOK:
       return { state: [...state.state, action.payload] };
     case REMOVE_BOOK:
-      return { state: [...state.state.filter((book) => book.id !== action.payload)] };
+      return { state: action.payload };
     default:
       return { state };
   }
