@@ -106,11 +106,6 @@ ul {
   display: flex;
 }
 
-.circularProgress {
-  height: 100px;
-  width: 100px;
-}
-
 .pers-completed {
   display: flex;
   flex-direction: column;
@@ -261,4 +256,15 @@ ul {
     bottom: 0;
     opacity: 0;
   }
+}
+/* circular progress bar*/
+.circularProgress {
+  height: 60px;
+  width: 60px;
+  margin: 1rem;
+  background-color: transparent;
+  border: 3px solid rgb(209, 209, 209);
+  border-radius: 50%;
+  border-right: 3px solid blue;
+  transform: rotate(-45deg);
 }

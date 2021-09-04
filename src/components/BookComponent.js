@@ -1,13 +1,13 @@
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { books } from '../redux/books/books';
-import styles from './BookComponent.module.css'
+import styles from './BookComponent.module.css';
 
 const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/D28YguIt5iavwfJAXzyr/books';
 
 const Books = () => {
+  const x = document.getElementById('toast');
   const removeBook = (id) => {
     x.className = 'show';
     setTimeout(() => { x.className = x.className.replace('show', ''); }, 4000);
@@ -18,8 +18,6 @@ const Books = () => {
       getBooks();
     });
   };
-  
-  const x = document.getElementById('toast');
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.booksReducer.state);
@@ -38,7 +36,7 @@ const Books = () => {
       bCategory.classList.add(styles.text);
       bDetails.appendChild(bCategory);
       const bTitle = document.createElement('h2');
-      bTitle.classList.add(styles.bookName)
+      bTitle.classList.add(styles.bookName);
       bTitle.innerText = data[bok][0].title;
       bDetails.appendChild(bTitle);
       const bAuthor = document.createElement('p');
@@ -83,10 +81,9 @@ const Books = () => {
 
       const bProgress = document.createElement('div');
       bProgress.classList.add('bProgress');
-      bProgress.innerHTML=`
+      bProgress.innerHTML = `
       <div class='progresss'>
         <div class='circularProgress'>
-          
         </div>
         <div class='pers-completed'>
           <p class='percentageProgress'>25%</p>
@@ -145,12 +142,12 @@ const Books = () => {
   return (
     <div>
       {/* <button type="button" onClick={getBooks}>getBooks</button> */}
-     
+
       <ul className="bookUl" />
-      <div className='line' />
-      <form onSubmit={submitBookToApi} className='bookForm'>
-        <input type="text" placeholder='Book title' id="book-input" className="book-input" />
-        <select name="categories" id="categories" className='category-input'>
+      <div className="line" />
+      <form onSubmit={submitBookToApi} className="bookForm">
+        <input type="text" placeholder="Book title" id="book-input" className="book-input" />
+        <select name="categories" id="categories" className="category-input">
           <option value="">Category</option>
           <option value="Comedy">Comedy</option>
           <option value="Action">Action</option>
@@ -158,7 +155,7 @@ const Books = () => {
           <option value="Drame">Drame</option>
         </select>
         <div id="toast">Please wait...</div>
-        <button type="submit" className='submitBtn blueBtns'>ADD BOOK</button>
+        <button type="submit" className="submitBtn blueBtns">ADD BOOK</button>
       </form>
     </div>
   );
