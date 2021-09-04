@@ -4,6 +4,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## deployment linke
+
+- [netlify](https://613370c15389a95938cb937a--mosesbookstore.netlify.app/)
+
 ## Languages and tools
 
 - HTML
