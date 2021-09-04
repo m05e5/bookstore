@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import './app.css';
 import Books from './components/BookComponent';
 import Categories from './redux/categories/categories';
 import Header from './components/Header';
