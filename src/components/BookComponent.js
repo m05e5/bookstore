@@ -7,8 +7,8 @@ import styles from './BookComponent.module.css';
 const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/D28YguIt5iavwfJAXzyr/books';
 
 const Books = () => {
-  const x = document.getElementById('toast');
   const removeBook = (id) => {
+    const x = document.getElementById('toast');
     x.className = 'show';
     setTimeout(() => { x.className = x.className.replace('show', ''); }, 4000);
     fetch(`${baseUrl}/${id}`, {
@@ -118,6 +118,7 @@ const Books = () => {
 
   const submitBookToApi = (e) => {
     e.preventDefault();
+    const x = document.getElementById('toast');
     x.className = 'show';
     setTimeout(() => { x.className = x.className.replace('show', ''); }, 4000);
     const bookName = document.getElementById('book-input').value;
@@ -154,9 +155,9 @@ const Books = () => {
           <option value="Romance">Romance</option>
           <option value="Drame">Drame</option>
         </select>
-        <div id="toast">Please wait...</div>
         <button type="submit" className="submitBtn blueBtns">ADD BOOK</button>
       </form>
+      <div id="toast">Please wait...</div>
     </div>
   );
 };
