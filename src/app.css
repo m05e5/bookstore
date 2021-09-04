@@ -1,8 +1,8 @@
 html {
-background-color: #f5f6fa;
-display: flex;
-align-items: center;
-justify-content: center;
+  background-color: #f5f6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
@@ -83,10 +83,11 @@ ul {
   box-shadow: 20px 20px 40px grey;
   background-color: #fafafa;
 }
+
 .li {
   display: flex;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #e8e8e8;
   margin: 1rem 2rem 1rem 2rem;
   border-radius: 5px;
@@ -114,7 +115,7 @@ ul {
   margin-right: 2rem;
 }
 
-.pers-completed p  {
+.pers-completed p {
   margin: 1px;
 }
 
@@ -129,7 +130,6 @@ ul {
   height: 1.125rem;
   margin: 0;
   opacity: 0.5;
-  font-family: RobotoSlab;
   font-size: 0.813rem;
   font-weight: 300;
 }
@@ -137,7 +137,6 @@ ul {
 .chapterText2 {
   height: 1.225rem;
   margin: 0;
-  font-family: RobotoSlab;
   opacity: 0.7;
   font-size: 1.013rem;
   font-weight: 300;
@@ -188,6 +187,7 @@ ul {
 .submitBtn {
   padding: 5px 20px 5px 20px;
 }
+
 /* toast */
 #toast {
   visibility: hidden;
@@ -257,7 +257,8 @@ ul {
     opacity: 0;
   }
 }
-/* circular progress bar*/
+
+/* circular progress bar */
 .circularProgress {
   height: 60px;
   width: 60px;
