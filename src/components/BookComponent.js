@@ -122,10 +122,11 @@ const Books = () => {
     x.className = 'show';
     setTimeout(() => { x.className = x.className.replace('show', ''); }, 4000);
     const bookName = document.getElementById('book-input').value;
+    const catSelected = document.getElementById('categories').value;
     const newBook = {
       item_id: Date.now(),
       title: bookName,
-      category: 'Shonen',
+      category: catSelected,
     };
     fetch(baseUrl, {
       method: 'POST',
